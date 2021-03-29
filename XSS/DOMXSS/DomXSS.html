@@ -1,0 +1,16 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form role="search" action="" method="GET">
+    <input type="text" name="search" placeholder=" 请输入要搜索的内容 ">
+    <button type="submit"> 搜索</button>
+</form>
+<script>
+    var search = location.search.substring(8);
+    document.write('你搜索的结果内容是：' + decodeURIComponent(search));
+</script>
+</body>
+</html>
