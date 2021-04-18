@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Decode</title>
+</head>
+<body>
+
+<h3>HTML解码</h3>
+<p>对于a标签，href属性 javascript:alert(1) 编码比较 r-> &#x 72 </p>
+
+<p>1 <a href="javascript:alert(1)"> 未编码</a></p>
+// 绕过
+<hr>
+<p>2 <a h&#x72;ef="javascript:alert(1)">href中的r进行编码</a></p>
+// 不能绕过
+// 破坏了 HTML 标签属性的完整性
+// DOM 树结构 HTML 编码
+<hr>
+<p>3 <a href="javasc&#x72;ipt:alert(1)">javascript中的r进行编码</a></p>
+// 绕过
+<hr>
+<p>4 <a href="javascript:ale&#x72;t(1)">alert(1)中的r进行编码</a></p>
+// 绕过
+<hr>
+
+</body>
+</html>

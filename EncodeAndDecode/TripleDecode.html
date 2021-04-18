@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Triple Decode</title>
+</head>
+<body>
+
+<h3>三层混淆解码</h3>
+<p>对于a标签，href属性 javascript:alert(1) 三层编码漏洞触发: js 编码 -> url 编码 -> html 编码 </p>
+
+<p>三层解码 	<a href="javascript:ale&#x25;&#x35;&#x63;&#x25;&#x37;&#x35;&#x25;&#x33;&#x30;&#x25;&#x33;&#x30;&#x25;&#x33;&#x37;&#x25;&#x33;&#x32;t(1)">alert(1)中的r进行js编码,后url编码,再html编码</a></p>
+// 绕过
+<hr>
+
+</body>
+</html>
