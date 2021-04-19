@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title hello rmliu
+    body
+        h1 pug template
+        p hello pug
+        a(href="www.baidu.com") 百度
+
+        // 转义
+        div= "<script> alert(1) </script>"
+
+        // 非转义
+        div!= "<script> alert(2) </script>"
+
+        // 变量转义
+        - var msg= '<strong>变量msg</strong>'
+        p #{msg}
+        p=msg
+
+        // 变量非转义
+        p !{msg}
+        p!=msg
+
